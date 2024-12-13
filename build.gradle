@@ -1,0 +1,44 @@
+plugins {
+    id 'java'
+}
+group = 'pl.zajavka'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '17'
+
+repositories {
+    mavenCentral()
+}
+
+ext {
+    springVersion = '5.3.23'
+    lombokVersion = '1.18.24'
+    junitVersion = '5.9.0'
+}
+
+
+dependencies {
+
+    implementation "org.springframework:spring-core:$springVersion"
+    implementation "org.springframework:spring-beans:$springVersion"
+    implementation "org.springframework:spring-context:$springVersion"
+    implementation "org.springframework:spring-context-support:$springVersion"
+    implementation "org.springframework:spring-expression:$springVersion"
+
+    compileOnly "org.projectlombok:lombok:$lombokVersion"
+    annotationProcessor "org.projectlombok:lombok:$lombokVersion"
+
+    testImplementation "org.junit.jupiter:junit-jupiter-api:$junitVersion"
+    testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:$junitVersion"
+
+    testCompileOnly "org.projectlombok:lombok:$lombokVersion"
+    testAnnotationProcessor "org.projectlombok:$lombokVersion"
+}
+
+test {
+    useJUnitPlatform()
+    testLogging {
+        events "passed", "skipped", "failed"
+    }
+}
+
+compileJava.options.encoding = 'UTF-8'
