@@ -3,7 +3,7 @@ plugins {
 }
 group = 'pl.zajavka'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '17'
+sourceCompatibility = '19'
 
 repositories {
     mavenCentral()
@@ -17,6 +17,8 @@ ext {
 
 
 dependencies {
+
+    implementation group: 'ch.qos.logback', name: 'logback-classic', version: '1.5.3'
 
     implementation "org.springframework:spring-core:$springVersion"
     implementation "org.springframework:spring-beans:$springVersion"
